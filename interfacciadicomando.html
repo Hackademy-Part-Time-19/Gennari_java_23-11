@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="incerfacciadicomando.css">
+</head>
+<body>
+
+    <script>
+
+        function stampaLista() {
+
+            let listaDaStampare = "La lista è ora \n"
+
+                lista.forEach(element => {
+                listaDaStampare += "-" + element + '\n'
+            });
+
+            alert(listaDaStampare)
+
+        }
+
+        let lista = []
+
+        let operazione = parseInt(prompt("Buona sera, quale operazione desideri effettuare? \n1 = Aggiungi un elemento alla lista. "  + "\n2 = Elimina un elemento dalla lista.\n3 = Ordina la lista in ordina alfabetico.\n4 = Modifica un elemento della lista.\n5 = Elimina l'intera lista.\n6 = Visualizza la lista. \n0 = chiudi."));
+
+        while (operazione != 0) {
+
+            switch (operazione) {
+
+                case 1:
+
+                    let elemento = prompt('Aggiungi un elemento alla lista.')
+
+                    lista.push(elemento)
+
+                    alert('Hai aggiunto un elemento alla lista')
+
+                    stampaLista()
+
+
+                break;
+     
+
+                case 2:
+
+                    let ElementoDaEliminare = prompt('Quale elemento vuoi eliminare?')
+
+                    let indiceDaEliminare = lista.indexOf(ElementoDaEliminare)
+
+                    if(indiceDaEliminare != -1){
+                        lista.splice(indiceDaEliminare, 1)
+                        alert('Hai rimosso' + ElementoDaEliminare + 'dalla lista.')
+
+                        stampaLista()
+
+                    }else{
+                        alert("L'elemento che hai inserito non è nella lista")
+                    }
+
+                break;
+
+
+                case 3:
+
+                    lista.sort()
+                    alert("Ho ordinato la lista in ordine alfabetico")
+                    stampaLista()
+
+                    break;   
+                    
+                    
+                case 4:
+
+                    let ElementoDaModificare = prompt('Quale elemento vuoi emodificare?')
+
+                    let indiceDaModificare = lista.indexOf(ElementoDaModificare)
+
+                    if (indiceDaModificare != -1) {
+                        let NuovoElemnto = prompt('Inserisci il nuovo elemento')
+                        lista[indiceDaModificare] = NuovoElemnto
+                        alert("Ho modificato l'elemento" + ElementoDaModificare + "con" + NuovoElemnto)
+                        stampaLista()
+                    }else
+                        alert("L'elemento che vuoi modificare non è presente nella lista")
+
+                    break;
+                 
+            
+                case 5:
+
+                    lista = []
+                    alert("Eliminazione in corso...")
+
+                    break;      
+                    
+                
+                case 6:
+
+                    stampaLista()
+
+
+                    break;       
+                
+            }
+
+            operazione = parseInt(prompt("Quale operazione desideri effettuare ora? \n1 = Aggiungi un elemento alla lista. "  + "\n2 = Elimina un elemento dalla lista.\n3 = Ordina la lista in ordina alfabetico.\n4 = Modifica un elemento della lista.\n5 = Elimina l'intera lista.\n6 = Visualizza la lista.\n0 = chiudi."));
+            
+        }
+
+    </script>
+    
+</body>
+</html>
